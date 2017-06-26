@@ -10,6 +10,7 @@
       <md-card-subtitle>
         <md-input-container style="width: 590px;">
           <input mdInput [(ngModel)]="newTask" (keyup.enter)="addTask()" placeholder="New Task Description">
+          <md-icon mdSuffix>mode_edit</md-icon>
         </md-input-container>
       </md-card-subtitle>
     </md-card-header>
@@ -17,7 +18,7 @@
     <md-card-content>
 
       <md-list [dragula]='"tasks-bag"' [dragulaModel]="openTasks">
-        <md-list-item class="task-item" *ngFor="let task of openTasks">{{task}}</md-list-item>
+        <md-list-item class="task-item mat-elevation-z3" *ngFor="let task of openTasks">{{task}}</md-list-item>
       </md-list>
     </md-card-content>
 
@@ -35,7 +36,7 @@
 
     <md-card-content>
       <md-list [dragula]='"tasks-bag"' [dragulaModel]="closedTasks">
-        <md-list-item class="task-item" *ngFor="let task of closedTasks">{{task}}</md-list-item>
+        <md-list-item class="task-item mat-elevation-z3" *ngFor="let task of closedTasks">{{task}}</md-list-item>
       </md-list>
     </md-card-content>
 

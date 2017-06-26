@@ -14,6 +14,10 @@
 
 .task-item {
    margin: 5px;
-   background-color: rgba(0, 0, 0, 0.05);
+   color: white;
+   /*background-color: rgba(0, 0, 0, 0.05);*/
+   /*background-color: rgb(23, 135, 255);*/
+   /*background-color: rgb(23, 135, 255);*/
+   background-color: #673ab7;
 }
 
