@@ -5,6 +5,7 @@ import {DragulaModule} from "ng2-dragula";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CustomMaterialModule} from "./shared/CustomMaterialModule";
 import {FormsModule} from "@angular/forms";
+import {TaskService} from "./task.service";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import {FormsModule} from "@angular/forms";
     CustomMaterialModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [
+    TaskService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

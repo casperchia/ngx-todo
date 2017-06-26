@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {DragulaService} from "ng2-dragula";
 import {MdSnackBar} from "@angular/material";
+import {TaskService} from "./task.service";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent implements OnInit {
   deletedClosedTasks: string[] = [];
   newTask: string = "";
 
-  constructor(private dragulaService: DragulaService, private snackBar: MdSnackBar) {
+  constructor(private dragulaService: DragulaService, private snackBar: MdSnackBar, private taskService: TaskService) {
   }
 
   ngOnInit() {
