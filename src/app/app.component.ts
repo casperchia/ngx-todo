@@ -1,5 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {DragulaService} from "ng2-dragula";
+import {MdSnackBar} from "@angular/material";
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,12 @@ import {DragulaService} from "ng2-dragula";
 })
 export class AppComponent implements OnInit {
   openTasks: string[] = [];
+  deletedOpenTasks: string[] = [];
   closedTasks: string[] = [];
+  deletedClosedTasks: string[] = [];
   newTask: string = "";
 
-  constructor(private dragulaService: DragulaService) {
+  constructor(private dragulaService: DragulaService, private snackBar: MdSnackBar) {
   }
 
   ngOnInit() {
@@ -33,13 +36,27 @@ export class AppComponent implements OnInit {
   }
 
   clearOpenTasks() {
+    this.deletedOpenTasks = this.openTasks;
     this.openTasks = [];
     localStorage.setItem("openTasks", JSON.stringify(this.openTasks));
+
+    let snackBarRef = this.snackBar.open("Open tasks deleted", "Undo", {duration: 5000});
+    snackBarRef.onAction().subscribe(() => {
+      this.openTasks = this.deletedOpenTasks;
+      localStorage.setItem("openTasks", JSON.stringify(this.openTasks));
+    });
   }
 
   clearClosedTasks() {
+    this.deletedClosedTasks = this.closedTasks;
     this.closedTasks = [];
     localStorage.setItem("closedTasks", JSON.stringify(this.closedTasks));
+
+    let snackBarRef = this.snackBar.open("Completed tasks deleted", "Undo", {duration: 5000});
+    snackBarRef.onAction().subscribe(() => {
+      this.closedTasks = this.deletedClosedTasks;
+      localStorage.setItem("closedTasks", JSON.stringify(this.closedTasks));
+    });
   }
 
   addTask() {

@@ -7,7 +7,8 @@ import {
   MdInputModule,
   MdListModule,
   MdSidenavModule,
-  MdSlideToggleModule
+  MdSlideToggleModule,
+  MdSnackBarModule
 } from "@angular/material";
 
 @NgModule({
@@ -22,6 +23,7 @@ import {
     MdButtonModule,
     MdListModule,
     MdIconModule,
+    MdSnackBarModule,
   ],
   providers: [],
 })
