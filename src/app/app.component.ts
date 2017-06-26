@@ -56,6 +56,9 @@ export class AppComponent implements OnInit {
   }
 
   addTask() {
+    if (!this.newTask.name) {
+      return;
+    }
     this.newTask.dateCreated = new Date();
     this.openTasks.unshift(this.newTask);
     this.taskService.saveTasks(TaskType.OPEN, this.openTasks);
