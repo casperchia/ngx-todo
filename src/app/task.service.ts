@@ -9,7 +9,7 @@ export class TaskService {
   }
 
   getTasks(taskType: TaskType): Task[] {
-    return JSON.parse(localStorage.getItem(taskType.toString()));
+    return JSON.parse(localStorage.getItem(taskType.toString())) || [];
   }
 
   saveTasks(taskType: TaskType, tasks: Task[]) {
